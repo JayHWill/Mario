@@ -5,29 +5,28 @@ import com.pset2.Printers.Filer;
 
 import java.util.Scanner;
 
-public class Picker {
+public class Picks {
     private int height;
 
-    public Picker(int height){
+    public Picks(int height) {
         this.height = height;
     }
-    public void Pick(){
+
+    public void Pick() {
         Scanner scanner = new Scanner(System.in);
         String printer = "null";
-        boolean ready = true;
-        while (ready) {
+        while (true) {
             if (printer.equals("null")) {
                 System.out.println("Print to console or file? (choose one): ");
                 printer = scanner.next();
             } else if (!printer.equals("CONSOLE") && !printer.equals("Console") && !printer.equals("console") &&
-                    !printer
-                            .equals("FILE") && !printer.equals("File") && !printer.equals("file")) {
+                    !printer.equals("FILE") && !printer.equals("File") && !printer.equals("file")) {
                 System.out.println("Invalid input. Enter either console or file: ");
+                printer = scanner.next();
             }
             if (printer.equals("CONSOLE") || printer.equals("Console") || printer.equals("console") || printer.equals
-                    ("FILE") || printer
-                    .equals("File") || printer.equals("file")) {
-                ready = false;
+                    ("FILE") || printer.equals("File") || printer.equals("file")) {
+                break;
             }
         }
         if (printer.equals("CONSOLE") || printer.equals("Console") || printer.equals("console")) {

@@ -8,16 +8,18 @@ import java.io.UnsupportedEncodingException;
 import java.util.Scanner;
 
 public class Filer implements Printer {
-    Scanner scanner = new Scanner(System.in);
-    private String fileName;
     private int height;
-    public Filer( int height){
+
+    public Filer(int height) {
         this.height = height;
     }
+
+    Scanner scanner = new Scanner(System.in);
+    String fileName;
+
     public void Print() {
-        boolean prints = true;
-        PrintWriter writer = null;
-        while (prints) {
+        PrintWriter writer;
+        while (true) {
             try {
                 System.out.println("What would you like the file to be called?:");
                 fileName = scanner.next();
@@ -25,13 +27,11 @@ public class Filer implements Printer {
                     fileName += ".txt";
                 }
                 writer = new PrintWriter(fileName, "UTF-8");
-                prints = false;
+                break;
             } catch (FileNotFoundException ex) {
                 System.out.println("File not found.");
-                prints = true;
             } catch (UnsupportedEncodingException ex) {
                 System.out.println("Unsupported encoding type.");
-                prints = true;
             }
         }
         int counter = 1;
