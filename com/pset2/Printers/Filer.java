@@ -23,10 +23,12 @@ public class Filer implements Printer {
             try {
                 System.out.println("What would you like the file to be called?:");
                 fileName = scanner.next();
+                StringBuilder SB = new StringBuilder();
+                SB.append(fileName);
                 if (!fileName.endsWith(".txt")) {
-                    fileName += ".txt";
+                    SB.append(".txt");
                 }
-                writer = new PrintWriter(fileName, "UTF-8");
+                writer = new PrintWriter(SB.toString(), "UTF-8");
                 break;
             } catch (FileNotFoundException ex) {
                 System.out.println("File not found.");
