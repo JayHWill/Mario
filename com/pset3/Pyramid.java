@@ -55,7 +55,7 @@ public class Pyramid {
     }
 
     public void printerPick() {
-        if( this.height == 0){
+        if( height == 0){
             return;
         }
         StringBuilder SB = new StringBuilder();
