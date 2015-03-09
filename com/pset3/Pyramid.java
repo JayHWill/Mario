@@ -55,6 +55,9 @@ public class Pyramid {
     }
 
     public void printerPick() {
+        if( height == 0){
+            return;
+        }
         StringBuilder SB = new StringBuilder();
         String printer;
         System.out.println("Print to console or file? (choose one): ");
