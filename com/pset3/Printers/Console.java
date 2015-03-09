@@ -1,7 +1,7 @@
-package com.pset2.Printers;
+package com.pset3.Printers;
 
-import com.pset2.Printer;
-import com.pset2.Pyramid;
+import com.pset3.Printer;
+import com.pset3.Pyramid;
 
 public class Console implements Printer {
     public void Printer(Pyramid obj) {

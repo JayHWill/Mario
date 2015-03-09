@@ -1,7 +1,7 @@
-package com.pset2;
+package com.pset3;
 
-import com.pset2.Printers.Console;
-import com.pset2.Printers.Filer;
+import com.pset3.Printers.Console;
+import com.pset3.Printers.Filer;
 
 import java.util.Scanner;
 
