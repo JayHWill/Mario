@@ -35,7 +35,7 @@ public class Mario {
             }
         }
 
-        int counter = 1;
+        int counter = 0;
         for (int i = 1; i <= height; i++) {
             for (int k = 0; k < height - i; k++) {
                 System.out.print(" ");
