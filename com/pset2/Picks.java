@@ -14,27 +14,22 @@ public class Picks {
 
     public void Pick() {
         Scanner scanner = new Scanner(System.in);
-        String printer = "null";
+        String printer;
+        System.out.println("Print to console or file? (choose one): ");
+        printer = scanner.next();
         while (true) {
-            if (printer.equals("null")) {
-                System.out.println("Print to console or file? (choose one): ");
-                printer = scanner.next();
-            } else if (!printer.equals("CONSOLE") && !printer.equals("Console") && !printer.equals("console") &&
+            if (!printer.equals("CONSOLE") && !printer.equals("Console") && !printer.equals("console") &&
                     !printer.equals("FILE") && !printer.equals("File") && !printer.equals("file")) {
                 System.out.println("Invalid input. Enter either console or file: ");
                 printer = scanner.next();
-            }
-            if (printer.equals("CONSOLE") || printer.equals("Console") || printer.equals("console") || printer.equals
-                    ("FILE") || printer.equals("File") || printer.equals("file")) {
+            } else {
                 break;
             }
         }
         if (printer.equals("CONSOLE") || printer.equals("Console") || printer.equals("console")) {
-            Console one = new Console(height);
-            one.Print();
+            new Console(height).Print();
         } else if (printer.equals("FILE") || printer.equals("File") || printer.equals("file")) {
-            Filer one = new Filer(height);
-            one.Print();
+            new Filer(height).Print();
         }
     }
 }
