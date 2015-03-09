@@ -3,8 +3,8 @@ package com.pset2.Printers;
 import com.pset2.Printer;
 
 import java.io.FileNotFoundException;
-import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
+import java.io.PrintWriter;
 import java.util.Scanner;
 
 public class Filer implements Printer {

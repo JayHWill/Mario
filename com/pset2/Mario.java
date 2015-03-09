@@ -19,7 +19,7 @@ public class Mario {
                     System.out.print("How high is the pyramid? (between 0 and 23 inclusive): ");
                     size = scanner.next();
                 }
-                if (size == null) {
+                if (size.equals("0")) {
                     System.out.println("Thank you! Have a nice day!");
                     return;
                 }
