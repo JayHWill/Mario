@@ -1,5 +1,5 @@
 package com.pset2;
 
 public interface Printer {
-    public void Print();
+    public void Printer(Pyramid obj);
 }
