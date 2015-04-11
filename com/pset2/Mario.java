@@ -34,6 +34,6 @@ public class Mario {
             }
         }
         Picks picker = new Picks(height);
-        picker.Pick();
+        picker.pick();
     }
 }

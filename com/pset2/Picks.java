@@ -12,7 +12,7 @@ public class Picks {
         this.height = height;
     }
 
-    public void Pick() {
+    public void pick() {
         Scanner scanner = new Scanner(System.in);
         String printer;
         System.out.println("Print to console or file? (choose one): ");
