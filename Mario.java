@@ -4,37 +4,7 @@ import java.util.Scanner;
 public class Mario {
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        String size;
-        int height = 0;
-        while(true) {
-            try {
-                if (height < 0 || height > 23) {
-                    System.out.println("Invalid entry. Input must be in the form of numbers between 0 and 23 " +
-                            "inclusive.\nTry again.");
-                    System.out.print("How high is the pyramid? (between 0 and 23 inclusive): ");
-                    size = scanner.next();
-                } else {
-                    System.out.print("How high is the pyramid? (between 0 and 23 inclusive): ");
-                    size = scanner.next();
-
-                }
-                if (size == null) {
-                    System.out.println("Thank you! Have a nice day!");
-                    return;
-                }
-                height = Integer.parseInt(size);
-                if( height > 0 && height <24 ){
-                    break;
-                }
-
-            } catch (NumberFormatException ex) {
-                System.out.println("Invalid entry. Input must be in the form of numbers between 0 and 23 inclusive" +
-                        ".\nTry again.");
-                height = 0;
-            }
-        }
-
+        int height = input();
         int counter = 0;
         for (int i = 1; i <= height; i++) {
             for (int k = 0; k < height - i; k++) {
@@ -47,6 +17,29 @@ public class Mario {
             if (counter < height) {
                 System.out.println();
                 counter++;
+            }
+        }
+    }
+
+    public static int input() {
+        Scanner scanner = new Scanner(System.in);
+        String hold;
+        int height;
+        while (true) {
+            try {
+                System.out.print("How high is the pyramid? (between 0 and 23 inclusive): ");
+                hold = scanner.next();
+                height = Integer.parseInt(hold);
+            } catch (NumberFormatException ex) {
+                System.out.println("3Invalid entry. Input must be in the form of numbers between 0 and 23 inclusive" +
+                        ".\nTry again.");
+                continue;
+            }
+            if (height < 0 || height > 23) {
+                System.out.println("Invalid entry. Input must be in the form of numbers between 0 and 23 " +
+                        "inclusive.\nTry again.");
+            } else if (height > 0 || height < 23) {
+                return height;
             }
         }
     }
