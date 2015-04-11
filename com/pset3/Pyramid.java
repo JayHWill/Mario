@@ -76,9 +76,9 @@ public class Pyramid {
             }
         }
         if (printer.equals("CONSOLE") || printer.equals("Console") || printer.equals("console")) {
-            new Console().Printer(this);
+            new Console().printer(this);
         } else if (printer.equals("FILE") || printer.equals("File") || printer.equals("file")) {
-            new Filer().Printer(this);
+            new Filer().printer(this);
         }
     }
 }

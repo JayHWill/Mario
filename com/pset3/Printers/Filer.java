@@ -13,7 +13,7 @@ public class Filer implements Printer {
     Scanner scanner = new Scanner(System.in);
     StringBuilder SB = new StringBuilder();
 
-    public void Printer(Pyramid obj) {
+    public void printer(Pyramid obj) {
         PrintWriter writer;
         while (true) {
             try {
