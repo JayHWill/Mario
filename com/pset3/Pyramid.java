@@ -10,28 +10,7 @@ public class Pyramid {
     Scanner scanner = new Scanner(System.in);
 
     public Pyramid() {
-        while (true) {
-            try {
-                if (height > 0 && height < 24) {
-                    break;
-                } else if (height < 0 || height > 23) {
-                    System.out.println("Invalid entry. Input must be in the form of numbers between 0 and 23 " +
-                            "inclusive.\nTry again.");
-                    System.out.print("How high is the pyramid? (between 0 and 23 inclusive): ");
-                } else {
-                    System.out.print("How high is the pyramid? (between 0 and 23 inclusive): ");
-                }
-                height = Integer.parseInt(scanner.next());
-                if (height == 0) {
-                    System.out.println("Thank you! Have a nice day!");
-                    return;
-                }
-            } catch (NumberFormatException ex) {
-                System.out.println("Invalid entry. Input must be in the form of numbers between 0 and 23 inclusive" +
-                        ".\nTry again.");
-                height = 0;
-            }
-        }
+        height = input();
     }
 
     public String toString() {
@@ -55,7 +34,7 @@ public class Pyramid {
     }
 
     public void printerPick() {
-        if( height == 0){
+        if (height == 0) {
             return;
         }
         StringBuilder SB = new StringBuilder();
@@ -63,10 +42,7 @@ public class Pyramid {
         System.out.println("Print to console or file? (choose one): ");
         SB.append(scanner.next());
         while (true) {
-            if (!SB.substring(0).equals("CONSOLE") && !SB.substring(0).equals("Console") && !SB.substring(0).equals
-                    ("console") &&
-                    !SB.substring(0).equals("FILE") && !SB.substring(0).equals("File") && !SB.substring(0).equals
-                    ("file")) {
+            if (!SB.substring(0).toLowerCase().equals("console") && !SB.substring(0).toLowerCase().equals("file")) {
                 System.out.println("Invalid input. Enter either console or file: ");
                 SB.delete(0, SB.length());
                 SB.append(scanner.next());
@@ -75,10 +51,33 @@ public class Pyramid {
                 break;
             }
         }
-        if (printer.equals("CONSOLE") || printer.equals("Console") || printer.equals("console")) {
+        if (printer.equals("console")) {
             new Console().printer(this);
-        } else if (printer.equals("FILE") || printer.equals("File") || printer.equals("file")) {
+        } else if (printer.equals("file")) {
             new Filer().printer(this);
+        }
+    }
+
+    public static int input() {
+        Scanner scanner = new Scanner(System.in);
+        String hold;
+        int height;
+        while (true) {
+            try {
+                System.out.print("How high is the pyramid? (between 0 and 23 inclusive): ");
+                hold = scanner.next();
+                height = Integer.parseInt(hold);
+            } catch (NumberFormatException ex) {
+                System.out.println("Invalid entry. Input must be in the form of numbers between 0 and 23 inclusive" +
+                        ".\nTry again.");
+                continue;
+            }
+            if (height < 0 || height > 23) {
+                System.out.println("Invalid entry. Input must be in the form of numbers between 0 and 23 " +
+                        "inclusive.\nTry again.");
+            } else if (height > 0 || height < 23) {
+                return height;
+            }
         }
     }
 }
